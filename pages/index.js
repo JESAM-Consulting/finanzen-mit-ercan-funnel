@@ -135,7 +135,7 @@ export default function Home() {
   ]);
   useEffect(() => {
     window.gtag("event", "number_step", { value: step });
-    console.log(marked);
+
     if (step < 10 && step != 5 && marked[step] == false && step != 9) {
       window.gtag("event", conversions[step]);
       setMarked(

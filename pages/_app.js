@@ -24,19 +24,14 @@ function MyApp({ Component, pageProps }) {
         strategy="beforeInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-59W37QMNK0"></Script>
       <Script id="google-analytics-script" strategy="beforeInteractive">
         {`
-          // window.dataLayer = window.dataLayer || [];
-          // function gtag(){dataLayer.push(arguments);}
-          // gtag('js', new Date());
-          // gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-          // page_path: window.location.pathname,
-          // });
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-59W37QMNK0');
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+          page_path: window.location.pathname,
+          });
     `}
       </Script>
       <Head>
@@ -44,6 +39,9 @@ function MyApp({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no,viewport-fit=cover"
         />
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"></meta>
         <meta charSet="UTF-8" />
       </Head>
       <Component {...pageProps} />

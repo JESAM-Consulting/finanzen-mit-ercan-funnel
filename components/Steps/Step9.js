@@ -133,10 +133,7 @@ export default function Step9() {
       art_heizung: userData.step5,
       leadherkunft: "http://finanzenmitercan.solar-pvcheck.de",
       Bemerkungen: calculatedDa,
-      
     };
-
-    console.log(sendData);
 
     await axios
       .post(
@@ -149,10 +146,24 @@ export default function Step9() {
         window.gtag("event", "Angebot erhalten");
         myForm.current.reset();
         setStep(step + 1);
-      })
+      });
 
+    const Data = {
+      Eigentuemer: userData.step1 === "Nein" ? false : true,
+      name: data.name,
+      plz: parseInt(userData.step6),
+      telefon: data.telefon,
+      email: data.email,
+      stromverbrauch: parseInt(userData.step2.consumo),
+      interesse_finanzierung: userData.step4,
+      dachform: userData.step3,
+      art_heizung: userData.step5,
+      leadherkunft: "https://immo-tommy.solar-pvcheck.de",
+      Bemerkungen: calculatedDa,
+      project: "immo-tommy",
+    };
 
-      const Data = {
+      const Dataone = {
         Eigentuemer: userData.step1 === "Nein" ? false : true,
         name: data.name,
         plz: parseInt(userData.step6),
@@ -171,16 +182,13 @@ export default function Step9() {
       await axios
       .post(
         `https://fe-lead-commen-api.rejoicehub.com/FE_API/lead_api/v1/contact`,
-        Data,
+        Dataone,
         config
       )
       .then((res) => {
         myForm.current.reset();
         setStep(step + 1);
       })
-
-
-
 
       .catch((error) => {
         console.log(error);

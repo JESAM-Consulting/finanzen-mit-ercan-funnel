@@ -962,7 +962,6 @@ export default function Step7() {
                 }
 
                 if (bike) {
-                  console.log(numBike);
                   suma += values["numBike"] * numBike;
                 }
 
