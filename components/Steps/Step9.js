@@ -140,7 +140,7 @@ export default function Step9() {
 
     await axios
       .post(
-        `http://finanzenmitercan.solar-pvcheck.de`,
+        `https://fe-partnerportal.de/FE_API/lead_api/v1/lead`,
         sendData,
         config
       )
@@ -162,9 +162,9 @@ export default function Step9() {
         interesse_finanzierung: userData.step4,
         dachform: userData.step3,
         art_heizung: userData.step5,
-        leadherkunft: "https://immo-tommy.solar-pvcheck.de",
+        leadherkunft: "http://finanzenmitercan.solar-pvcheck.de",
         Bemerkungen: calculatedDa,
-        project:"immo-tommy"
+        project:"finanzenmitercan"
       };
 
 
